@@ -23,7 +23,7 @@ public class UserService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = findUserByUsername(username)
+        UserEntity user = userRepository.findByUsernameAndStatusTrue(username)
                 .orElseThrow(
                         () -> new UsernameNotFoundException("Username: " + username + " no existe en el sistema!"));
 
@@ -37,7 +37,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<UserEntity> findUserByUsername(String username) {
+    public Optional<UserEntity> findByUserByUsername(String username) {
         return userRepository.findByUsernameAndStatusTrue(username);
     }
 }

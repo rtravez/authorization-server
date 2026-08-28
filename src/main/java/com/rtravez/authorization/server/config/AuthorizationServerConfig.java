@@ -91,16 +91,16 @@ public class AuthorizationServerConfig {
     OAuth2TokenCustomizer<JwtEncodingContext> jwtTokenCustomizer(UserService userService) {
         return context -> {
             if (OAuth2TokenType.ACCESS_TOKEN.equals(context.getTokenType())) {
-                UserEntity user = userService.findUserByUsername(context.getPrincipal().getName()).orElse(null);
+                UserEntity user = userService.findByUserByUsername(context.getPrincipal().getName()).orElse(null);
                 if (user != null) {
                     context.getClaims().claim("username", user.getUsername());
                     context.getClaims().claim("status", user.getStatus());
                     context.getClaims().claim("name", user.getPerson().getName());
                     context.getClaims().claim("lastname", user.getPerson().getLastname());
                     context.getClaims().claim("identification", user.getPerson().getIdentification());
-                        List<String> roles = user.getRoleUsers().stream()
+                    List<String> roles = user.getRoleUsers().stream()
                             .map(roleUser -> roleUser.getRole().getName()).toList();
-                        context.getClaims().claim("roles", roles);
+                    context.getClaims().claim("roles", roles);
                 }
             }
         };
