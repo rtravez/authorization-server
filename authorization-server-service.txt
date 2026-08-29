@@ -4,7 +4,6 @@ docker images
 docker image ls
 docker run -P --name authorization-server-service --network cloud-rtravez authorization-server-service:latest
 docker run --name authorization-server-service --network cloud-rtravez -p 8080:8080 authorization-server-service:latest
-docker run --name authorization-server-service --network cloud-rtravez -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 authorization-server-service:latest
 docker container ls
 docker container --help
 docker ps
