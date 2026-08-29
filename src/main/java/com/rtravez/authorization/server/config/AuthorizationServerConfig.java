@@ -27,6 +27,7 @@ import org.springframework.security.oauth2.server.authorization.settings.TokenSe
 import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -38,6 +39,9 @@ import java.util.UUID;
 
 @Configuration
 public class AuthorizationServerConfig {
+    @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
+    private String issuerUri;
+
     @Bean
     @Order(1)
     SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
@@ -84,7 +88,7 @@ public class AuthorizationServerConfig {
 
     @Bean
     AuthorizationServerSettings authorizationServerSettings() {
-        return AuthorizationServerSettings.builder().issuer(SecurityConstants.ISSUER).build();
+        return AuthorizationServerSettings.builder().issuer(issuerUri).build();
     }
 
     @Bean
