@@ -1,18 +1,18 @@
-docker build -t authorization-server-service:latest .
+docker build -t auth-service:latest .
 docker network create cloud-rtravez
 docker images
 docker image ls
-docker run -P --name authorization-server-service --network cloud-rtravez authorization-server-service:latest
-docker run --name authorization-server-service --network cloud-rtravez -p 8080:8080 authorization-server-service:latest
+docker run -P --name auth-service --network cloud-rtravez auth-service:latest
+docker run --name auth-service --network cloud-rtravez -p 8080:8080 auth-service:latest
 docker container ls
 docker container --help
 docker ps
 docker ps -a
-docker logs -f authorization-server-service
+docker logs -f auth-service
 
 // docker hub
-docker tag authorization-server-service:latest rtravez/authorization-server-service:latest
-docker push rtravez/authorization-server-service:latest
+docker tag auth-service:latest rtravez/auth-service:latest
+docker push rtravez/auth-service:latest
 
 
 // docker
