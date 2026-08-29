@@ -1,0 +1,27 @@
+docker build -t authorization-server-service:latest .
+docker network create cloud-rtravez
+docker images
+docker image ls
+docker run -P --name authorization-server-service --network cloud-rtravez authorization-server-service:latest
+docker run --name authorization-server-service --network cloud-rtravez -p 8080:8080 authorization-server-service:latest
+docker run --name authorization-server-service --network cloud-rtravez -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 authorization-server-service:latest
+docker container ls
+docker container --help
+docker ps
+docker ps -a
+docker logs -f authorization-server-service
+
+// docker hub
+docker tag authorization-server-service:latest rtravez/authorization-server-service:latest
+docker push rtravez/authorization-server-service:latest
+
+
+// docker
+docker-compose up -d
+
+//restaurar base de datos
+
+--/usr/lib/postgresql/16/bin$
+
+psql -h localhost -p 5432 -U postgres -d db_test -v --clean -f /run/media/rtravez/mydata/Personal/workspaceSofka/msc-root/BaseDatos.sql
+pg_restore -h localhost -p 5432 -U postgres -d db_test -v --clean /run/media/rtravez/mydata/Personal/workspaceSofka/msc-root/BaseDatos.sql 
