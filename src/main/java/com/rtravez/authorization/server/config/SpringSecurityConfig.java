@@ -24,8 +24,13 @@ public class SpringSecurityConfig {
     @Order(2)
     SecurityFilterChain applicationSecurityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login", "/error", "/oauth2/**", "/.well-known/**", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                        .anyRequest().authenticated())
+                .requestMatchers("/login", "/error", "/oauth2/**", "/.well-known/**", "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/actuator/health",
+                        "/actuator/info",
+                        "/actuator/health/**")
+                .permitAll()
+                .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/oauth2/token"))
                 .cors(Customizer.withDefaults());
