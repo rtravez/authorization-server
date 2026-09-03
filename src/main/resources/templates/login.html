@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Iniciar sesión | Authorization Server</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        :root {
+            --ink: #17212b;
+            --muted: #66737f;
+            --accent: #e85d3f;
+            --accent-dark: #c9472d;
+            --wash: #f4eee7;
+        }
+
+        body {
+            min-height: 100vh;
+            color: var(--ink);
+            background: var(--wash);
+            background-image: radial-gradient(circle at 12% 12%, rgba(232, 93, 63, .18), transparent 25%),
+                linear-gradient(135deg, rgba(255, 255, 255, .72), rgba(244, 238, 231, .94));
+        }
+
+        .login-shell {
+            max-width: 1060px;
+        }
+
+        .brand-panel {
+            min-height: 560px;
+            color: #fff;
+            background: var(--ink);
+            background-image: linear-gradient(145deg, rgba(232, 93, 63, .95), rgba(23, 33, 43, .9) 58%),
+                repeating-linear-gradient(135deg, transparent 0 22px, rgba(255, 255, 255, .05) 23px 24px);
+        }
+
+        .brand-mark {
+            letter-spacing: .08em;
+        }
+
+        .login-card {
+            min-height: 560px;
+            background: rgba(255, 255, 255, .92);
+        }
+
+        .form-control {
+            padding: .8rem 1rem;
+            border-color: #d5dce1;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 .2rem rgba(232, 93, 63, .18);
+        }
+
+        .btn-accent {
+            color: #fff;
+            background: var(--accent);
+            border-color: var(--accent);
+            padding: .8rem 1rem;
+        }
+
+        .btn-accent:hover,
+        .btn-accent:focus {
+            color: #fff;
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            letter-spacing: .14em;
+            font-size: .75rem;
+            font-weight: 700;
+        }
+
+        .helper {
+            color: var(--muted);
+        }
+
+        @media (max-width: 767.98px) {
+
+            .brand-panel,
+            .login-card {
+                min-height: auto;
+            }
+
+            .brand-panel {
+                padding: 2.5rem 2rem !important;
+            }
+
+            .login-card {
+                padding: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex align-items-center py-4">
+    <main class="container login-shell">
+        <div class="row g-0 shadow-lg overflow-hidden rounded-4">
+            <section class="col-md-5 brand-panel d-flex flex-column justify-content-between p-5">
+                <div>
+                    <div class="brand-mark fw-bold">AUTHORIZATION SERVER</div>
+                    <div class="mt-5 display-6 fw-semibold">Tu identidad, bajo tu control.</div>
+                    <p class="mt-3 mb-0 opacity-75">Accede de forma segura para continuar con la aplicación.</p>
+                </div>
+                <small class="opacity-75">OAuth 2.0 · OpenID Connect</small>
+            </section>
+            <section class="col-md-7 login-card d-flex align-items-center p-5">
+                <div class="w-100" style="max-width: 420px; margin: auto;">
+                    <div class="eyebrow text-uppercase mb-2">Bienvenido</div>
+                    <h1 class="h2 fw-bold mb-2">Iniciar sesión</h1>
+                    <p class="helper mb-4">Ingresa tus credenciales para continuar.</p>
+
+                    <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                        Usuario o contraseña incorrectos.
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success" role="alert">
+                        Has cerrado sesión correctamente.
+                    </div>
+
+                    <form th:action="@{/login}" method="post">
+                        <div class="mb-3">
+                            <label for="username" class="form-label fw-semibold">Usuario</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                autocomplete="username" placeholder="Ingresa tu usuario" required autofocus>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-semibold">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                autocomplete="current-password" placeholder="Ingresa tu contraseña" required>
+                        </div>
+                        <button type="submit" class="btn btn-accent w-100 fw-semibold">Continuar</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

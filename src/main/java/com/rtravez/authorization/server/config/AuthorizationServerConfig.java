@@ -49,7 +49,7 @@ public class AuthorizationServerConfig {
         http.securityMatcher(authorizationServer.getEndpointsMatcher())
                 .with(authorizationServer, configurer -> configurer.oidc(Customizer.withDefaults()))
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
-        return http.formLogin(Customizer.withDefaults()).cors(Customizer.withDefaults()).build();
+        return http.formLogin(form -> form.loginPage("/login")).cors(Customizer.withDefaults()).build();
     }
 
     @Bean

@@ -31,7 +31,7 @@ public class SpringSecurityConfig {
                         "/actuator/health/**")
                 .permitAll()
                 .anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults())
+                .formLogin(form -> form.loginPage("/login"))
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/oauth2/token"))
                 .cors(Customizer.withDefaults());
         return http.build();
