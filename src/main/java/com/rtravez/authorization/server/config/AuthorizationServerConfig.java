@@ -8,7 +8,6 @@ import com.rtravez.authorization.server.entity.UserEntity;
 import com.rtravez.authorization.server.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
@@ -43,7 +42,7 @@ public class AuthorizationServerConfig {
     private String issuerUri;
 
     @Bean
-    @Order(1)
+    //@Order(1)
     SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
         OAuth2AuthorizationServerConfigurer authorizationServer = OAuth2AuthorizationServerConfigurer.authorizationServer();
         http.securityMatcher(authorizationServer.getEndpointsMatcher())
