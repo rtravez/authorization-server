@@ -1,4 +1,4 @@
-package com.rtravez.authorization.server.entity;
+package com.rtravez.auth.server.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

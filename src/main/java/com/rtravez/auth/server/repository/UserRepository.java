@@ -1,6 +1,6 @@
-package com.rtravez.authorization.server.repository;
+package com.rtravez.auth.server.repository;
 
-import com.rtravez.authorization.server.entity.UserEntity;
+import com.rtravez.auth.server.entity.UserEntity;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 

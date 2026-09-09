@@ -1,4 +1,4 @@
-package com.rtravez.authorization.server.entity;
+package com.rtravez.auth.server.entity;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.rtravez.authorization.server.controller;
+package com.rtravez.auth.server.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

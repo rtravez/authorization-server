@@ -1,4 +1,4 @@
-package com.rtravez.authorization.server.config;
+package com.rtravez.auth.server.config;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

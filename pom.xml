@@ -16,11 +16,11 @@
 
     <!-- Project Information -->
     <groupId>com.rtravez</groupId>
-    <artifactId>authorization-server</artifactId>
+    <artifactId>auth-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>authorization-server</name>
-    <description>OAuth2 Authorization Server</description>
+    <name>auth-server</name>
+    <description>Auth Server</description>
 
     <!-- Properties -->
     <properties>
@@ -43,7 +43,7 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- OAuth2 Authorization Server -->
+        <!-- OAuth2 Auth Server -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-authorization-server</artifactId>

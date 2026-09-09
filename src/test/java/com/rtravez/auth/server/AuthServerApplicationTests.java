@@ -1,10 +1,10 @@
-package com.rtravez.authorization.server;
+package com.rtravez.auth.server;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AuthorizationServerApplicationTests {
+class AuthServerApplicationTests {
 
 	@Test
 	void contextLoads() {

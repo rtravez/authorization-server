@@ -1,13 +1,13 @@
-package com.rtravez.authorization.server;
+package com.rtravez.auth.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AuthorizationServerApplication {
+public class AuthServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AuthorizationServerApplication.class, args);
+		SpringApplication.run(AuthServerApplication.class, args);
 	}
 
 }

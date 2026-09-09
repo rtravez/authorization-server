@@ -1,4 +1,4 @@
-package com.rtravez.authorization.server.service;
+package com.rtravez.auth.server.service;
 
 import java.util.Optional;
 
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rtravez.authorization.server.entity.UserEntity;
-import com.rtravez.authorization.server.repository.UserRepository;
+import com.rtravez.auth.server.entity.UserEntity;
+import com.rtravez.auth.server.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
