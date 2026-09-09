@@ -22,4 +22,5 @@ docker-compose up -d
 --/usr/lib/postgresql/16/bin$
 
 psql -h localhost -p 5432 -U postgres -d db_test -v --clean -f /run/media/rtravez/mydata/Personal/workspaceSofka/msc-root/BaseDatos.sql
-pg_restore -h localhost -p 5432 -U postgres -d db_test -v --clean /run/media/rtravez/mydata/Personal/workspaceSofka/msc-root/BaseDatos.sql 
+pg_restore -h localhost -p 5432 -U postgres -d db_test -v --clean /run/media/rtravez/mydata/Personal/workspaceSofka/msc-root/BaseDatos.sql
+
