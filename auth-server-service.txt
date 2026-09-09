@@ -14,7 +14,6 @@ docker logs -f auth-service
 docker tag auth-service:latest rtravez/auth-service:latest
 docker push rtravez/auth-service:latest
 
-
 // docker
 docker-compose up -d
 
