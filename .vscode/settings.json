@@ -1,0 +1,14 @@
+{
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "/home/rtravez/.sdkman/candidates/java/21.0.12-tem",
+            "default": true,
+        }
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "json.schemaDownload.enable": false,
+    "editor.formatOnSave": false,
+    "java.debug.settings.onBuildFailureProceed": true,
+}
